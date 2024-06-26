@@ -1,0 +1,20 @@
+term,term_id,term_level,fdr,num_in_list,fold_enrichment
+recombination hotspot binding,GO:0010844,0,0.04098137206900467,2,63.606837606837615
+DNA binding,GO:0003677,1,4.276854251375248e-06,69,1.8309853128376286
+nucleic acid binding,GO:0003676,2,0.009602929154951987,76,1.4097753450334378
+histone H4K20 monomethyltransferase activity,GO:0140944,0,0.01367712512866592,3,31.8034188034188
+histone H4K20 methyltransferase activity,GO:0042799,1,0.03534370421019632,3,23.852564102564106
+"DNA-binding transcription activator activity, RNA polymerase II-specific",GO:0001228,0,0.003703135626998623,21,2.7827991452991454
+"DNA-binding transcription factor activity, RNA polymerase II-specific",GO:0000981,1,7.957751825437711e-06,48,2.24825346474831
+DNA-binding transcription factor activity,GO:0003700,2,1.4196793608111723e-05,49,2.1674096263804192
+transcription regulator activity,GO:0140110,3,1.4466640813681671e-05,58,1.9345551028823185
+DNA-binding transcription activator activity,GO:0001216,1,0.004152059224233047,21,2.748443600295452
+chromatin binding,GO:0003682,0,0.0051878211897677575,24,2.4741719652578644
+RNA polymerase II cis-regulatory region sequence-specific DNA binding,GO:0000978,0,0.0024644556882290553,38,2.0448898723010394
+cis-regulatory region sequence-specific DNA binding,GO:0000987,1,0.0029046868494704875,38,2.0058587793027627
+transcription cis-regulatory region binding,GO:0000976,2,0.00019014004838142787,47,2.0131457020345906
+transcription regulatory region nucleic acid binding,GO:0001067,3,0.00017251085299298596,47,2.0104380413728093
+sequence-specific double-stranded DNA binding,GO:1990837,3,1.2622280811586526e-05,51,2.0969287123133276
+double-stranded DNA binding,GO:0003690,4,4.374242273679821e-06,55,2.14361278699514
+sequence-specific DNA binding,GO:0043565,4,9.318771446382824e-05,51,1.9732048162705098
+RNA polymerase II transcription regulatory region sequence-specific DNA binding,GO:0000977,1,0.001112274080581919,43,1.9648663915905296
