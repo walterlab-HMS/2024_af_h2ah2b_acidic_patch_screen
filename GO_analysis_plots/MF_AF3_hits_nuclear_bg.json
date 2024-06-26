@@ -1,0 +1,353 @@
+{"overrepresentation": {
+    "reference": {"reference_organism": "Homo sapiens"},
+    "upload_lists": {"input_list": {
+        "organism": "Homo sapiens",
+        "list_name": "upload_1"
+    }},
+    "tool_release_date": 20240226,
+    "data_version_release_date": "GO Ontology database DOI:  10.5281/zenodo.10536401 Released 2024-01-17",
+    "annotation_type": "GO molecular function complete",
+    "correction": "FDR",
+    "test_type": "FISHER",
+    "group": [
+        {"result": {
+            "input_list": {
+                "number_in_list": 2,
+                "fold_enrichment": 181.51219512195124,
+                "fdr": 0.02352231715428715,
+                "expected": 0.011018543402311206,
+                "pValue": 2.961575971581637E-5,
+                "mapped_id_list": {"mapped_id": [
+                    "Q9NQW5",
+                    "Q9NQV7"
+                ]},
+                "list_name": "upload_1",
+                "plus_minus": "+"
+            },
+            "number_in_reference": 2,
+            "term": {
+                "level": 0,
+                "id": "GO:0010844",
+                "label": "recombination hotspot binding"
+            }
+        }},
+        {"result": [
+            {
+                "input_list": {
+                    "number_in_list": 3,
+                    "fold_enrichment": 90.75609756097562,
+                    "fdr": 0.009751274128634259,
+                    "expected": 0.03305563020693362,
+                    "pValue": 3.0693340033472642E-6,
+                    "mapped_id_list": {"mapped_id": [
+                        "Q9NQR1",
+                        "Q4FZB7",
+                        "Q9NQV7"
+                    ]},
+                    "list_name": "upload_1",
+                    "plus_minus": "+"
+                },
+                "number_in_reference": 6,
+                "term": {
+                    "level": 0,
+                    "id": "GO:0140944",
+                    "label": "histone H4K20 monomethyltransferase activity"
+                }
+            },
+            {
+                "input_list": {
+                    "number_in_list": 3,
+                    "fold_enrichment": 68.06707317073172,
+                    "fdr": 0.009031622872252601,
+                    "expected": 0.04407417360924482,
+                    "pValue": 8.528444638576584E-6,
+                    "mapped_id_list": {"mapped_id": [
+                        "Q9NQR1",
+                        "Q4FZB7",
+                        "Q9NQV7"
+                    ]},
+                    "list_name": "upload_1",
+                    "plus_minus": "+"
+                },
+                "number_in_reference": 8,
+                "term": {
+                    "level": 1,
+                    "id": "GO:0042799",
+                    "label": "histone H4K20 methyltransferase activity"
+                }
+            },
+            {
+                "input_list": {
+                    "number_in_list": 3,
+                    "fold_enrichment": 38.89547038327526,
+                    "fdr": 0.02151391358970321,
+                    "expected": 0.07712980381617845,
+                    "pValue": 5.4174160754682305E-5,
+                    "mapped_id_list": {"mapped_id": [
+                        "Q9NQR1",
+                        "Q4FZB7",
+                        "Q9NQV7"
+                    ]},
+                    "list_name": "upload_1",
+                    "plus_minus": "+"
+                },
+                "number_in_reference": 14,
+                "term": {
+                    "level": 2,
+                    "id": "GO:0140939",
+                    "label": "histone H4 methyltransferase activity"
+                }
+            },
+            {
+                "input_list": {
+                    "number_in_list": 5,
+                    "fold_enrichment": 12.965156794425088,
+                    "fdr": 0.019440076927727108,
+                    "expected": 0.3856490190808922,
+                    "pValue": 3.671402630354506E-5,
+                    "mapped_id_list": {"mapped_id": [
+                        "Q9NRC8",
+                        "Q9NQW5",
+                        "Q9NQR1",
+                        "Q4FZB7",
+                        "Q9NQV7"
+                    ]},
+                    "list_name": "upload_1",
+                    "plus_minus": "+"
+                },
+                "number_in_reference": 70,
+                "term": {
+                    "level": 4,
+                    "id": "GO:0008276",
+                    "label": "protein methyltransferase activity"
+                }
+            },
+            {
+                "input_list": {
+                    "number_in_list": 7,
+                    "fold_enrichment": 6.652279402375176,
+                    "fdr": 0.02488980229084249,
+                    "expected": 1.0522708949207202,
+                    "pValue": 7.050935493156513E-5,
+                    "mapped_id_list": {"mapped_id": [
+                        "Q6B0I6",
+                        "Q9NRC8",
+                        "Q8IYW5",
+                        "Q9NQW5",
+                        "Q9NQR1",
+                        "Q4FZB7",
+                        "Q9NQV7"
+                    ]},
+                    "list_name": "upload_1",
+                    "plus_minus": "+"
+                },
+                "number_in_reference": 191,
+                "term": {
+                    "level": 4,
+                    "id": "GO:0140993",
+                    "label": "histone modifying activity"
+                }
+            },
+            {
+                "input_list": {
+                    "number_in_list": 4,
+                    "fold_enrichment": 14.817322050771528,
+                    "fdr": 0.04056580331381091,
+                    "expected": 0.26995431335662456,
+                    "pValue": 1.4045446536100725E-4,
+                    "mapped_id_list": {"mapped_id": [
+                        "Q9NQW5",
+                        "Q9NQR1",
+                        "Q4FZB7",
+                        "Q9NQV7"
+                    ]},
+                    "list_name": "upload_1",
+                    "plus_minus": "+"
+                },
+                "number_in_reference": 49,
+                "term": {
+                    "level": 2,
+                    "id": "GO:0016279",
+                    "label": "protein-lysine N-methyltransferase activity"
+                }
+            },
+            {
+                "input_list": {
+                    "number_in_list": 4,
+                    "fold_enrichment": 14.520975609756096,
+                    "fdr": 0.04025840566420919,
+                    "expected": 0.2754635850577802,
+                    "pValue": 1.520619666259082E-4,
+                    "mapped_id_list": {"mapped_id": [
+                        "Q9NQW5",
+                        "Q9NQR1",
+                        "Q4FZB7",
+                        "Q9NQV7"
+                    ]},
+                    "list_name": "upload_1",
+                    "plus_minus": "+"
+                },
+                "number_in_reference": 50,
+                "term": {
+                    "level": 3,
+                    "id": "GO:0016278",
+                    "label": "lysine N-methyltransferase activity"
+                }
+            }
+        ]},
+        {"result": {
+            "input_list": {
+                "number_in_list": 2,
+                "fold_enrichment": 90.75609756097562,
+                "fdr": 0.04312288392041071,
+                "expected": 0.02203708680462241,
+                "pValue": 1.7645498613954647E-4,
+                "mapped_id_list": {"mapped_id": [
+                    "Q4FZB7",
+                    "Q9NQV7"
+                ]},
+                "list_name": "upload_1",
+                "plus_minus": "+"
+            },
+            "number_in_reference": 4,
+            "term": {
+                "level": 0,
+                "id": "GO:0140941",
+                "label": "histone H4K20me methyltransferase activity"
+            }
+        }},
+        {"result": {
+            "input_list": {
+                "number_in_list": 4,
+                "fold_enrichment": 20.74425087108014,
+                "fdr": 0.023318028761374007,
+                "expected": 0.1928245095404461,
+                "pValue": 3.6698188167097904E-5,
+                "mapped_id_list": {"mapped_id": [
+                    "P28370",
+                    "O60264",
+                    "Q9NRZ9",
+                    "Q149N8"
+                ]},
+                "list_name": "upload_1",
+                "plus_minus": "+"
+            },
+            "number_in_reference": 35,
+            "term": {
+                "level": 0,
+                "id": "GO:0140658",
+                "label": "ATP-dependent chromatin remodeler activity"
+            }
+        }},
+        {"result": [
+            {
+                "input_list": {
+                    "number_in_list": 6,
+                    "fold_enrichment": 12.375831485587584,
+                    "fdr": 0.01179560360422942,
+                    "expected": 0.4848159097016931,
+                    "pValue": 7.42562392460146E-6,
+                    "mapped_id_list": {"mapped_id": [
+                        "Q8NCN4",
+                        "Q8IYW5",
+                        "P28370",
+                        "O60264",
+                        "Q12824",
+                        "Q8N884"
+                    ]},
+                    "list_name": "upload_1",
+                    "plus_minus": "+"
+                },
+                "number_in_reference": 88,
+                "term": {
+                    "level": 0,
+                    "id": "GO:0031491",
+                    "label": "nucleosome binding"
+                }
+            },
+            {
+                "input_list": {
+                    "number_in_list": 12,
+                    "fold_enrichment": 3.530220974819148,
+                    "fdr": 0.02521033878548958,
+                    "expected": 3.3992206396130076,
+                    "pValue": 7.935265591907327E-5,
+                    "mapped_id_list": {"mapped_id": [
+                        "Q6B0I6",
+                        "Q8NCN4",
+                        "Q9NRC8",
+                        "Q9H1E3",
+                        "Q8IYW5",
+                        "Q8NDX5",
+                        "P28370",
+                        "O60264",
+                        "Q12824",
+                        "Q4FZB7",
+                        "Q9NRZ9",
+                        "Q8N884"
+                    ]},
+                    "list_name": "upload_1",
+                    "plus_minus": "+"
+                },
+                "number_in_reference": 617,
+                "term": {
+                    "level": 1,
+                    "id": "GO:0003682",
+                    "label": "chromatin binding"
+                }
+            }
+        ]},
+        {"result": {
+            "input_list": {
+                "number_in_list": 6,
+                "fold_enrichment": 6.892868169188021,
+                "fdr": 0.04594913327825902,
+                "expected": 0.8704649287825853,
+                "pValue": 2.0248280324067558E-4,
+                "mapped_id_list": {"mapped_id": [
+                    "Q9H8M2",
+                    "Q8WWQ0",
+                    "Q8NCN4",
+                    "Q12830",
+                    "Q8IYW5",
+                    "Q8N884"
+                ]},
+                "list_name": "upload_1",
+                "plus_minus": "+"
+            },
+            "number_in_reference": 158,
+            "term": {
+                "level": 0,
+                "id": "GO:0140030",
+                "label": "modification-dependent protein binding"
+            }
+        }},
+        {"result": {
+            "input_list": {
+                "number_in_list": 8,
+                "fold_enrichment": 6.000403144527314,
+                "fdr": 0.01905480163854322,
+                "expected": 1.3332437516796558,
+                "pValue": 4.198413958759916E-5,
+                "mapped_id_list": {"mapped_id": [
+                    "Q9H8M2",
+                    "Q8WWQ0",
+                    "Q8NCN4",
+                    "Q12830",
+                    "Q8IYW5",
+                    "Q8NDX5",
+                    "O60264",
+                    "Q96P70"
+                ]},
+                "list_name": "upload_1",
+                "plus_minus": "+"
+            },
+            "number_in_reference": 242,
+            "term": {
+                "level": 0,
+                "id": "GO:0042393",
+                "label": "histone binding"
+            }
+        }}
+    ]
+}}
