@@ -320,7 +320,7 @@ def get_residue_data_from_structure_file(struct_filepath, residues=None):
 
 
 
-def get_best_matches(query_seq:str, seqs_to_search:dict, similarity_threshold=0.6):
+def get_best_matches(query_seq:str, seqs_to_search:dict, similarity_threshold=0.75):
 
     query_seq_clean = query_seq.replace("*", "")
     query_seq_len = len(query_seq_clean)
@@ -352,8 +352,7 @@ def get_best_matches(query_seq:str, seqs_to_search:dict, similarity_threshold=0.
     return matches
 
 
-MAX_TRIANGLE_PERIMETER = 50
-
+MAX_TRIANGLE_PERIMETER = 70
 
 def get_closest_vertex(query_vertex, other_vertices):
 
@@ -370,7 +369,7 @@ def get_closest_vertex(query_vertex, other_vertices):
     return ix, closest_v
 
 
-def get_triangles(res_triangle_strs, structure_aa_sequences, all_struct_residue_data):
+def get_triangles(filepath, res_triangle_strs, structure_aa_sequences, all_struct_residue_data):
 
     res_triangles = []
     structure_chains = list(structure_aa_sequences.keys())
@@ -421,7 +420,7 @@ def get_triangles(res_triangle_strs, structure_aa_sequences, all_struct_residue_
         vertex_group = [active_vertex]
         while active_vertex is not None:
 
-            ix, v =  get_closest_vertex(active_vertex, vertices_to_consider)
+            ix, v = get_closest_vertex(active_vertex, vertices_to_consider)
             vertex_group.append(v)
             del vertices_to_consider[ix]
             if len(vertex_group) == 3:
@@ -441,7 +440,7 @@ def get_triangles(res_triangle_strs, structure_aa_sequences, all_struct_residue_
             distances = np.sqrt(np.sum(np.diff(coordinates, axis=0)**2, axis=1))
             perimeter = np.sum(distances) + np.sqrt(np.sum((coordinates[-1] - coordinates[0])**2))
             if(perimeter > MAX_TRIANGLE_PERIMETER):
-                print(f"WARNING: UNUSUALLY LARGE TRIANGLE DETECTED!!!! perimeter = {perimeter}")
+                print(f"WARNING: Unusually large triangle was detected with a perimeter = {perimeter} in {filepath}.")
                 continue
 
             res_triangles.append({
@@ -454,12 +453,13 @@ def get_triangles(res_triangle_strs, structure_aa_sequences, all_struct_residue_
                 "perimeter":perimeter
             })
 
+
     return res_triangles
 
 
 def analysis_thread_did_finish(a):
     
-    print("done")
+    print("Thread done.")
 
 
 def get_seq_context(rescode, all_residue_data, num_aas = 10):
@@ -492,14 +492,15 @@ def get_seq_context(rescode, all_residue_data, num_aas = 10):
     return seq_context
 
 
-def process_files(output_folder, input_folder, cpu_index, struct_filepaths, res_triangle_strs, processing_exp_structs, distance = 6):
+def process_files(output_folder, input_folder, cpu_index, struct_filepaths, res_triangle_strs, processing_exp_structs, distance = 6, verbose=False):
 
     data_lines = []
     d2_cutoff = distance**2
 
     for ix, filepath in enumerate(struct_filepaths):
         
-        print(f"CPU {cpu_index}:: {ix}/{len(struct_filepaths)} ==> {filepath}")
+        if verbose:
+            print(f"CPU {cpu_index}:: {ix}/{len(struct_filepaths)} ==> {filepath}")
 
         struct_name = filepath.split("/").pop().replace('.cif', '').replace('.pdb', '')
         model_num = -1
@@ -514,10 +515,16 @@ def process_files(output_folder, input_folder, cpu_index, struct_filepaths, res_
         all_residue_data = get_residue_data_from_structure_file(filepath)
         structure_chains = list(structure_aa_sequences.keys())
 
-        triangles = get_triangles(res_triangle_strs, structure_aa_sequences, all_residue_data)
-        print(f"Found {len(triangles)} triangles in {struct_name}")
+        triangles = get_triangles(filepath, res_triangle_strs, structure_aa_sequences, all_residue_data)
+
+        if verbose:
+            print(f"Found {len(triangles)} triangles in {filepath}")
+
+        if abs(len(triangles)/len(res_triangle_strs) - round(len(triangles)/len(res_triangle_strs))) > 0.01:
+             print(f"WARNING: There was not a 1 to 1 correspondence between defined triangles and those found in {struct_name}. Found {len(triangles)} triangles compared to {len(res_triangle_strs)} specified.")
+
         if len(triangles) < 1:
-            print(f"Skipping {struct_name} because no triangles were found")
+            print(f"SKIPPING: {struct_name} because no triangles were found.")
             continue
 
         all_relevant_residues = []
@@ -545,7 +552,7 @@ def process_files(output_folder, input_folder, cpu_index, struct_filepaths, res_
         for rescode in anchoring_residues_to_check:
             res_data = all_residue_data[rescode]
             if 'CZ' not in res_data['atoms']:
-                print(f"PDB:{struct_name} is missing a CZ atom for arginine, {rescode}=>{res_data}")
+                print(f"WARNING PDB:{struct_name} is missing a CZ atom for arginine, {rescode}=>{res_data}")
                 continue
 
             chain, res_ix = rescode.split(':')
@@ -560,7 +567,6 @@ def process_files(output_folder, input_folder, cpu_index, struct_filepaths, res_
 
             if min_d2 > d2_cutoff:
                 continue
-
 
             seq_context = get_seq_context(rescode, all_residue_data)
 
@@ -619,7 +625,7 @@ def process_files(output_folder, input_folder, cpu_index, struct_filepaths, res_
 
 
 
-def find_interactors(folder, res_triangle_strs, processing_exp_structs, max_distance):
+def find_interactors(folder, res_triangle_strs, processing_exp_structs, max_distance, verbose=False):
 
     struct_files =glob.glob(os.path.join(folder, "*.pdb")) + glob.glob(os.path.join(folder, "*.pdb???")) + glob.glob(os.path.join(folder, "*.cif")) 
     if len(struct_files) < 1:
@@ -642,7 +648,7 @@ def find_interactors(folder, res_triangle_strs, processing_exp_structs, max_dist
     for cpu_index in range(0, num_cpus_to_use):
         #create a new thread to analyze the complexes (1 thread per CPU)
         traces.append(pool.apply_async(process_files, 
-                                    args=(output_folder,folder, cpu_index, pdb_files_lists[cpu_index], res_triangle_strs, processing_exp_structs, max_distance), 
+                                    args=(output_folder,folder, cpu_index, pdb_files_lists[cpu_index], res_triangle_strs, processing_exp_structs, max_distance, verbose), 
                                     callback=analysis_thread_did_finish))
 
     for t in traces:
@@ -683,6 +689,12 @@ if __name__ == '__main__':
         default=False)
     
     parser.add_argument(
+        "--verbose",
+        action='store_true',
+        help="Set this flag to have the script output more information to the console while it's working.",
+        default=False)
+    
+    parser.add_argument(
         "--distance",
         default=6,
         help="The maximal distance in Angstroms to consider for an anchoring residue",
@@ -701,5 +713,5 @@ if __name__ == '__main__':
         if not os.path.isdir(folder):
             print(f"{folder} does not appear to be a valid folder.")
             continue
-        find_interactors(folder, res_triangle_strs, args.expstructs, args.distance)
+        find_interactors(folder, res_triangle_strs, args.expstructs, args.distance, args.verbose)
     
