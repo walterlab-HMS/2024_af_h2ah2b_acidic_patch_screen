@@ -5,8 +5,31 @@ This is the accompanying repository for the preprint first released here: https:
 
 You can interactively view all predicted AlphaFold multimer structures here: https://predictomes.org/view/acidicpatch
 
-The code in this repository has been tested on a Linux machine running Ubuntu 20.04.5 LTS (GNU/Linux 5.15.0-52-generic x86_64). To run the code here please ensure your Python environment has the extra packages installed as specified in the requirements.txt file. 
+# System Requirements
+## Hardware requirements
+The scripts in this repository only requires a standard computer with enough RAM to support the in-memory operations. The scripts are designed to take advantage of multiple processors where available and will attempt to distribute tasks to all available CPUs. On a typical user system the demos supplied should all run in less than a minute.
+## Software requirements
+### OS Requirements
+The code in this repository has been tested on a Linux machine running Ubuntu 20.04.5 LTS (GNU/Linux 5.15.0-52-generic x86_64). It should work on Mac OSX as well. 
 
+### Python Dependencies
+To run the code here please ensure your Python environment has the extra packages installed as specified in the requirements.txt file. 
+```
+numpy
+scipy
+pandas
+seaborn
+matplotlib
+```
+
+## Installation Guide:
+
+### Install from GitHub
+
+Given the small size of this repository the installation should take less than a minute over most standard network connections. 
+```
+git clone https://github.com/walterlab-HMS/2024_af_h2ah2b_acidic_patch_screen
+```
 
 # Examples and usage information
 
