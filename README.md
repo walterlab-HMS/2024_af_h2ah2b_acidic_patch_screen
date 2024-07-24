@@ -34,6 +34,13 @@ python3 find_acidic_patch_interactions.py acidic_patch_afm_example_files/ --tria
 This script uses the PDB API to find all PDB structures that contain H2A and H2B proteins by using a sequence similarity search. 
 
 ```
+  parameters = {
+      "sequence_type": "protein",
+      "value": sequence,
+      "identity_cutoff": 0.7,
+      "evalue_cutoff": 0.1
+  }
+
 h2a_seq = "APVYMAAVLEYLTAEILELAGNAARDNKKT"
 h2b_seq = "TSREIQTAVRLLLPGELAKHAVSEGTKAVT"
 ```
