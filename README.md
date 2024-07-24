@@ -4,6 +4,7 @@ Scripts to analyze acidic patch interactions from the PDB and AlphaFold predicte
 This is the accompanying repository for the preprint first released here: https://www.biorxiv.org/content/10.1101/2024.06.26.600687v1
 
 You can interactively view all predicted AlphaFold multimer structures here: https://predictomes.org/view/acidicpatch
+
 The code in this repository has been tested on a Linux machine running Ubuntu 20.04.5 LTS (GNU/Linux 5.15.0-52-generic x86_64). To run the code here please ensure your Python environment has the extra packages installed as specified in the requirements.txt file. 
 
 
